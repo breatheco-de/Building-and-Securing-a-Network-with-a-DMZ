@@ -6,7 +6,7 @@
 *Estas instrucciones [están disponibles en 🇪🇸 español](https://github.com/4GeeksAcademy/installing-windows-on-virtual-machine/blob/main/README.es.md) :es:*
 <!-- endhide -->
 
-<!-- howtostart -->
+<onlyfor saas="true" withBanner="true">
 
 ## 🌱 How to start this project?
 
@@ -14,7 +14,7 @@
 
 Once you have opened the file with Packet Tracer you will see the floating window with the instructions to follow.
 
-<!-- endhowtostart -->
+</onlyfor>
 
 ## 📝 Instructions
 
