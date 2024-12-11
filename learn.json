@@ -11,6 +11,7 @@
     "preview": "https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/blob/main/assets/preview.jpg?raw=true",
     "repository": "https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ",
     "duration": 4,
+    "projectType": "project",
     "difficulty": "intermediate",
     "bugsLink": "https://github.com/breatheco-de/breatheco-de/issues/new",
     "technologies": [
