@@ -6,11 +6,15 @@
 *Estas instrucciones [están disponibles en 🇪🇸 español](https://github.com/4GeeksAcademy/installing-windows-on-virtual-machine/blob/main/README.es.md) :es:*
 <!-- endhide -->
 
+<onlyfor saas="false" withBanner="false">
+
 ## 🌱 ¿Cómo empezar este proyecto?
 
 [Descarga aquí](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/ProjectDMZ.pka) el archivo y ábrelo con Packet Tracer.
 
 Una vez que hayas abierto el archivo con Packet Tracer, verás una ventana flotante con las instrucciones a seguir.
+
+</onlyfor>
 
 ## 📝 Instrucciones
 
