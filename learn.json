@@ -5,12 +5,13 @@
     },
     "slug": "building-and-securing-a-network-with-a-demilitarized-zone",
     "description": {
-        "us": "Learn how to create a simulated network environment that includes a Demilitarized Zone, configure firewalls, gateways, and network detection systems, and ensure network security.",
-        "es": "Aprende a crear un entorno de red simulado que incluya una Zona Desmilitarizada, configura firewalls, gateways y sistemas de detección de red, y garantiza la seguridad de la red."
+        "us": "Learn to build a simulated network environment with a Demilitarized Zone (DMZ). Configure firewalls, gateways, and network detection systems to ensure security. Design internal, external, and DMZ networks, set up firewall rules, deploy services, monitor traffic, and document security measures for a complete network defense experience.",
+        "es": "Aprende a crear un entorno de red simulado con una Zona Desmilitarizada (DMZ). Configura firewalls, puertas de enlace y sistemas de detección de red para garantizar la seguridad. Diseña redes internas, externas y DMZ, establece reglas de firewall, despliega servicios, monitorea el tráfico y documenta medidas de seguridad para una defensa de red completa."
     },
     "preview": "https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/blob/main/assets/preview.jpg?raw=true",
     "repository": "https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ",
     "duration": 4,
+    "projectType": "project",
     "difficulty": "intermediate",
     "bugsLink": "https://github.com/breatheco-de/breatheco-de/issues/new",
     "technologies": [
@@ -26,13 +27,13 @@
     ],
     "graded": false,
     "telemetry": {
-        "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry"
+	    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=1997"
     },
     "delivery": {
-		"instructions": {
-			"en": "Please attach your finished pka file and upload it here",
-			"es": "Por favor adjunta tu archivo pka listo y cárgalo aquí"
-		},
-		"formats": ["application/octet-stream,.pka"]
-	}
+      "instructions": {
+        "en": "Please attach your finished pka file and upload it here",
+        "es": "Por favor adjunta tu archivo pka listo y cárgalo aquí"
+      },
+      "formats": ["application/octet-stream,.pka"]
+	  }
 }
