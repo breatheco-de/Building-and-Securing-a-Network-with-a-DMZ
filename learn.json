@@ -30,10 +30,11 @@
 	    "batch": "https://breathecode.herokuapp.com/v1/assignment/me/telemetry?asset_id=1997"
     },
     "delivery": {
-      "instructions": {
-        "en": "Please attach your finished pka file and upload it here",
-        "es": "Por favor adjunta tu archivo pka listo y cárgalo aquí"
-      },
-      "formats": ["application/octet-stream,.pka"]
-	  }
+    "instructions": {
+     "us": "Paste the link to your GitHub repository with the technical report here.",
+        "es": "Pega el link de tu repositorio de GitHub con el informe aquí."
+    },
+    "formats": ["url"]
+    }
+
 }
