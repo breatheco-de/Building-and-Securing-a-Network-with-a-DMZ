@@ -8,6 +8,10 @@
         "us": "Learn to build a simulated network environment with a Demilitarized Zone (DMZ). Configure firewalls, gateways, and network detection systems to ensure security. Design internal, external, and DMZ networks, set up firewall rules, deploy services, monitor traffic, and document security measures for a complete network defense experience.",
         "es": "Aprende a crear un entorno de red simulado con una Zona Desmilitarizada (DMZ). Configura firewalls, puertas de enlace y sistemas de detección de red para garantizar la seguridad. Diseña redes internas, externas y DMZ, establece reglas de firewall, despliega servicios, monitorea el tráfico y documenta medidas de seguridad para una defensa de red completa."
     },
+	"solution":{
+	    "es":"https://github.com/rosinni/Building-and-Securing-a-Network-with-a-DMZ/blob/solution/SOLUTION.es.md",
+	    "us":"https://github.com/rosinni/Building-and-Securing-a-Network-with-a-DMZ/blob/solution/SOLUTION.md"
+    },
     "preview": "https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/blob/main/assets/preview.jpg?raw=true",
     "repository": "https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ",
     "duration": 4,
