@@ -75,7 +75,7 @@ Estas pruebas simulan situaciones reales de seguridad, donde se verifica que sol
 
 ## 🚛 ¿Cómo entregar este proyecto?
 
-Una vez que hayas finalizado los pasos de instrucción de Packet Tracer, deberás guardar tu archivo y preparar un informe técnico siguiendo la plantilla oficial proporcionada [plantilla del informe](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/report_DMZ.es.md). **¡Importante!** Usa la plantilla como guía para redactar tu informe. No se aceptarán entregas sin estructura o incompletas.
+Una vez que hayas finalizado los pasos de instrucción de Packet Tracer, deberás guardar tu archivo y preparar un informe técnico siguiendo la plantilla oficial proporcionada [plantilla del informe](https://github.com/rosinni/Building-and-Securing-a-Network-with-a-DMZ/blob/main/assets/report_DMZ.es.md). **¡Importante!** Usa la plantilla como guía para redactar tu informe. No se aceptarán entregas sin estructura o incompletas.
 
 1. Crea un repositorio público en tu cuenta de GitHub con el nombre `dmz-lab` (o similar).
 2. Sube los siguientes archivos:
