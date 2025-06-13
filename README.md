@@ -72,7 +72,7 @@ These tests simulate real security situations, where you verify that only legiti
 
 ## 🚛 How to submit this project?
 
-Once you have completed the Packet Tracer instructions, you must save your file and prepare a technical report following the official template provided [report template](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/report_DMZ.md). **Important!** Use the template as a guide to write your report. Submissions without structure or incomplete will not be accepted.
+Once you have completed the Packet Tracer instructions, you must save your file and prepare a technical report following the official template provided [report template](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/blob/main/assets/report_DMZ.md). **Important!** Use the template as a guide to write your report. Submissions without structure or incomplete will not be accepted.
 
 1. Create a public repository in your GitHub account named `dmz-lab` (or similar).
 2. Upload the following files:
