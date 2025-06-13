@@ -6,56 +6,85 @@
 *Estas instrucciones [están disponibles en 🇪🇸 español](https://github.com/4GeeksAcademy/installing-windows-on-virtual-machine/blob/main/README.es.md) :es:*
 <!-- endhide -->
 
+Este laboratorio está diseñado para que los estudiantes adquieran competencias fundamentales en ciberseguridad defensiva, mediante la configuración de una Zona Desmilitarizada (DMZ) en Cisco Packet Tracer. El objetivo es:
+
+- Aislar servicios críticos (DMZ)
+- Controlar de tráfico mediante ACLs
+- Exponer de forma controlada servicios web
+- Configuración segura de NAT
+
+
+### ⚠️ Nota Importante para el Estudiante
+Este ejercicio ha sido diseñado con una estructura paso a paso para ayudarte a comprender cómo se configura y protege una red con DMZ de forma correcta y segura. **Es muy importante que sigas con precisión las instrucciones proporcionadas,** especialmente el plan de direccionamiento IP y los comandos indicados.
+
+   > Usar otras IPs o cambiar el orden de configuración puede romper la conectividad, impedir el funcionamiento del NAT o invalidar las ACLs.
+
+*Más adelante podrás practicar creando una DMZ libre, diseñando tu propia topología y reglas de acceso. Pero en este laboratorio, el objetivo es que comprendas primero la lógica y los fundamentos siguiendo un modelo controlado.*
+
 ## 🌱 ¿Cómo empezar este proyecto?
 
-[Descarga aquí](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/ProjectDMZ.pka) el archivo y ábrelo con Packet Tracer.
+[Descarga aquí](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/DMZ_PROJECT.pka) el archivo y ábrelo con Packet Tracer.
 
-Una vez que hayas abierto el archivo con Packet Tracer, verás una ventana flotante con las instrucciones a seguir.
+Una vez que hayas abierto el archivo con Packet Tracer, verás una ventana flotante con instrucciones a seguir.
 
 ## 📝 Instrucciones
 
-Crea un entorno de red simulado que incluya una Zona Desmilitarizada (DMZ), configura firewalls, gateways y sistemas de detección de red, y garantiza la seguridad de la red.
+Al comenzar este laboratorio, **no necesitarás crear ni cablear la red desde cero**. Ya se te proporciona una **topología funcional prehecha** en Packet Tracer para que puedas concentrarte en lo más importante: la **configuración de seguridad**.
 
-### Componentes:
 
-1. **Diseño de Red:**
-   - Diseña un esquema de red que incluya una DMZ, red interna y red externa.
-   - Configura máquinas virtuales o utiliza una herramienta de simulación de red para crear el entorno.
+### Topología del laboratorio
 
-2. **Configuración del Firewall:**
-   - Configura firewalls para segmentar la red en redes DMZ e internas.
-   - Establece reglas de firewall para controlar el tráfico entre la red interna, la DMZ y la red externa.
+**Router Central (`Router_FW`): Cisco ISR 2911**
 
-3. **Configuración de la DMZ:**
-   - Despliega servicios en la DMZ como un servidor web, servidor de correo o servidor DNS.
-   - Asegura que la DMZ esté aislada de la red interna pero sea accesible desde la red externa.
+- `GigabitEthernet0/0` conectado a `SW_Internal` (red LAN)  
+- `GigabitEthernet0/1` conectado a `SW_DMZ` (red DMZ)  
+- `GigabitEthernet0/2` conectado a `SW_External` (red externa / internet)  
 
-4. **Gateway o Servidor Proxy:**
-   - Configura un gateway o servidor proxy para gestionar el tráfico entre la red interna y la externa.
-   - Implementa políticas de control de acceso en el servidor proxy.
+**Switches Cisco 2960:**
 
-5. **Detección y Respuesta de Red (NDR):**
-   - Despliega y configura herramientas NDR para monitorear el tráfico de red y detectar actividades sospechosas.
-   - Configura alertas y registros para eventos de la red.
+- `SW_Internal` conecta al `PC_Internal`  
+- `SW_DMZ` conecta al `Server-PT Web_DMZ`  
+- `SW_External` conecta al `PC_External`  
 
-6. **Pruebas de Seguridad:**
-   - Realiza escaneos de red y evaluaciones de vulnerabilidades utilizando herramientas como Nmap para identificar posibles problemas de seguridad.
-   - Prueba las reglas del firewall y la segmentación de la red para asegurar que se prevenga el acceso no autorizado.
+**Dispositivos finales:**
 
-7. **Documentación e Informes:**
-   - Documenta el diseño de la red, las reglas del firewall y las configuraciones de seguridad.
-   - Prepara un informe que resuma el proyecto, incluyendo cualquier vulnerabilidad descubierta y los pasos tomados para abordarlas.
+- `PC_Internal` (usuario en red LAN)  
+- `Server-PT Web_DMZ` (servidor web en la DMZ)  
+- `PC_External` (usuario externo simulando internet)  
 
-Este proyecto brindará a los participantes experiencia práctica en la configuración y seguridad de un entorno de red, aplicando los conceptos de defensa de red, firewalls, DMZ y detección y respuesta de red.
+### ¿Qué debes hacer tú?
+
+Tu tarea consistirá en **completar la configuración lógica** de esta red prehecha. Deberás:
+
+1. **Asignar direcciones IP** a todos los dispositivos finales y al router.  
+   Esto garantiza que cada zona (LAN, DMZ, Externa) tenga conectividad básica.
+
+2. **Configurar NAT estático** en el router, para que el servidor DMZ pueda ser accesible desde el exterior.  
+   > El uso de NAT es una técnica clave para ocultar direcciones privadas y exponer servicios públicos de forma controlada.
+
+3. **Aplicar Listas de Control de Acceso (ACLs)** para restringir el tráfico entre las zonas.  
+   > Las ACLs simulan un firewall, bloqueando accesos no autorizados y permitiendo solo lo necesario para cada rol.
+
+4. **Realizar pruebas de validación funcional**:
+   - Pings desde distintos puntos de la red
+   - Acceso HTTP desde la red externa al servidor
+   - Verificar que ciertos accesos estén **bloqueados**, como el intento de conexión desde la DMZ hacia la LAN (INTERNAL_NETWORK)
+
+Estas pruebas simulan situaciones reales de seguridad, donde se verifica que solo se permita el tráfico legítimo y se bloquee el malicioso o innecesario.
+
 
 ## 🚛 ¿Cómo entregar este proyecto?
 
-Una vez que hayas finalizado los pasos de instrucción de Packet Tracer, por favor guarda tus cambios y adjunta el archivo en la plataforma de 4geeks.com en el proyecto correspondiente.
+Una vez que hayas finalizado los pasos de instrucción de Packet Tracer, deberás guardar tu archivo y preparar un informe técnico siguiendo la plantilla oficial proporcionada [plantilla del informe](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/report_DMZ.es.md). **¡Importante!** Usa la plantilla como guía para redactar tu informe. No se aceptarán entregas sin estructura o incompletas.
 
-- Configuración de las redes Interna, Externa y DMZ en el diseño de red propuesto.
-- Configuración del firewall y gateway para controlar el tráfico entre los ambientes interno, externo y DMZ.
-- Capturas de pantalla de pruebas de acceso y bloqueo de tráfico entre los ambientes especificados.
-- Informe detallando las medidas de seguridad aplicadas y recomendaciones de seguridad para el diseño propuesto.
+1. Crea un repositorio público en tu cuenta de GitHub con el nombre `dmz-lab` (o similar).
+2. Sube los siguientes archivos:
+   - Tu archivo final de Packet Tracer.
+   - `informe/Informe_DMZ_Laboratorio.md`: el informe completado usando la plantilla.
+   - `evidencias/`: capturas de pantalla de las pruebas realizadas.
+3. Agrega un `README.md` que explique brevemente el objetivo del laboratorio y los contenidos del repositorio.
+4. **Entrega el enlace del repositorio en la plataforma 4Geeks.**
+
 
 <!-- hide -->
 ## Colaboradores

@@ -1,71 +1,96 @@
 <!-- hide -->
-# Building and Securing a Network with a DMZ**
+# Building and Securing a Network with a DMZ
 
 > By [@vanemorocho](https://github.com/vanemorocho) and [other contributors](https://github.com/breatheco-de/commands-for-remote-hacking/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.co/)
 
-*Estas instrucciones [están disponibles en 🇪🇸 español](https://github.com/4GeeksAcademy/installing-windows-on-virtual-machine/blob/main/README.es.md) :es:*
+*These instructions [are available in 🇪🇸 Spanish](https://github.com/4GeeksAcademy/installing-windows-on-virtual-machine/blob/main/README.es.md) :es:*
 <!-- endhide -->
+
+This lab is designed for students to acquire fundamental skills in defensive cybersecurity by configuring a Demilitarized Zone (DMZ) in Cisco Packet Tracer. The objectives are:
+
+- Isolate critical services (DMZ)
+- Control traffic using ACLs
+- Expose web services in a controlled manner
+- Secure NAT configuration
+
+### ⚠️ Important Note for Students
+This exercise is structured step by step to help you understand how to correctly and securely configure and protect a network with a DMZ. **It is very important that you follow the provided instructions precisely,** especially the IP addressing plan and the indicated commands.
+
+   > Using other IPs or changing the configuration order may break connectivity, prevent NAT from working, or invalidate the ACLs.
+
+*Later, you will be able to practice creating a free-form DMZ, designing your own topology and access rules. But in this lab, the goal is to first understand the logic and fundamentals by following a controlled model.*
 
 ## 🌱 How to start this project?
 
-[Download here](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/ProjectDMZ.pka) the file and open it with Packet Tracer.
+[Download the file here](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/DMZ_PROJECT.pka) and open it with Packet Tracer.
 
-Once you have opened the file with Packet Tracer you will see the floating window with the instructions to follow.
+Once you have opened the file in Packet Tracer, you will see a floating window with instructions to follow.
 
 ## 📝 Instructions
 
-Create a simulated network environment that includes a Demilitarized Zone (DMZ), configure firewalls, gateways, and network detection systems, and ensure network security.
+At the start of this lab, **you do not need to create or cable the network from scratch**. A **prebuilt functional topology** is already provided in Packet Tracer so you can focus on what matters most: **security configuration**.
 
-### Components:
+### Lab Topology
 
-1. **Network Design:**
-   - Design a network layout that includes a DMZ, internal network, and external network.
-   - Set up virtual machines or use a network simulation tool to create the network environment.
+**Central Router (`Router_FW`): Cisco ISR 2911**
 
-2. **Firewall Configuration:**
-   - Configure firewalls to segment the network into DMZ and internal networks.
-   - Set up firewall rules to control traffic between the internal network, DMZ, and external network.
+- `GigabitEthernet0/0` connected to `SW_Internal` (LAN network)  
+- `GigabitEthernet0/1` connected to `SW_DMZ` (DMZ network)  
+- `GigabitEthernet0/2` connected to `SW_External` (external/internet network)  
 
-3. **DMZ Setup:**
-   - Deploy services in the DMZ such as a web server, mail server, or DNS server.
-   - Ensure that the DMZ is isolated from the internal network but still accessible from the external network.
+**Cisco 2960 Switches:**
 
-4. **Gateway or Proxy Server:**
-   - Configure a gateway or proxy server to manage traffic between the internal network and the external network.
-   - Implement access control policies on the proxy server.
+- `SW_Internal` connects to `PC_Internal`  
+- `SW_DMZ` connects to `Server-PT Web_DMZ`  
+- `SW_External` connects to `PC_External`  
 
-5. **Network Detection and Response (NDR):**
-   - Deploy and configure NDR tools to monitor network traffic and detect suspicious activities.
-   - Set up alerts and logging for network events.
+**End Devices:**
 
-6. **Security Testing:**
-   - Perform network scans and vulnerability assessments using tools like Nmap to identify potential security issues.
-   - Test the firewall rules and network segmentation to ensure that unauthorized access is prevented.
+- `PC_Internal` (user in LAN)  
+- `Server-PT Web_DMZ` (web server in the DMZ)  
+- `PC_External` (external user simulating the internet)  
 
-7. **Documentation and Reporting:**
-   - Document the network design, firewall rules, and security configurations.
-   - Prepare a report summarizing the project, including any vulnerabilities discovered and the steps taken to address them.
+### What do you need to do?
 
-This project will give participants hands-on experience with configuring and securing a network environment, applying the concepts of network defense, firewalls, DMZ, and network detection and response.
+Your task will be to **complete the logical configuration** of this prebuilt network. You must:
 
-## 🚛 How to deliver this project?
+1. **Assign IP addresses** to all end devices and the router.  
+   This ensures that each zone (LAN, DMZ, External) has basic connectivity.
 
-Once you've finished the Packet Tracer instruction steps, please save your changes and attach the file to the 4geeks.com platform in the corresponding project.
+2. **Configure static NAT** on the router so that the DMZ server can be accessed from outside.  
+   > Using NAT is a key technique to hide private addresses and expose public services in a controlled way.
 
-- Configuration of the Internal, External, and DMZ networks in the proposed network design.
-- Configuration of the firewall and gateway to control traffic between the internal, external, and DMZ environments.
-- Screenshots of access and traffic blocking tests between the specified environments.
-- Report detailing the proposed design's applied security measures and security recommendations.
+3. **Apply Access Control Lists (ACLs)** to restrict traffic between zones.  
+   > ACLs simulate a firewall, blocking unauthorized access and allowing only what is necessary for each role.
+
+4. **Perform functional validation tests**:
+   - Pings from different points in the network
+   - HTTP access from the external network to the server
+   - Verify that certain accesses are **blocked**, such as attempts to connect from the DMZ to the LAN (INTERNAL_NETWORK)
+
+These tests simulate real security situations, where you verify that only legitimate traffic is allowed and malicious or unnecessary traffic is blocked.
+
+## 🚛 How to submit this project?
+
+Once you have completed the Packet Tracer instructions, you must save your file and prepare a technical report following the official template provided [report template](https://github.com/breatheco-de/Building-and-Securing-a-Network-with-a-DMZ/raw/main/assets/report_DMZ.md). **Important!** Use the template as a guide to write your report. Submissions without structure or incomplete will not be accepted.
+
+1. Create a public repository in your GitHub account named `dmz-lab` (or similar).
+2. Upload the following files:
+   - Your final Packet Tracer file.
+   - `informe/Informe_DMZ_Laboratorio.md`: the completed report using the template.
+   - `evidencias/`: screenshots of the tests performed.
+3. Add a `README.md` that briefly explains the objective of the lab and the contents of the repository.
+4. **Submit the repository link on the 4Geeks platform.**
 
 <!-- hide -->
 ## Contributors
 
-Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
+Thanks to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
-1. [Vanessa Morocho (vanemorocho)](https://github.com/vanemorocho) contribution: (build-tutorial) ✅, (documentation) 📖
+1. [Vanessa Morocho (vanemorocho)](https://github.com/vanemorocho) contribution: (tutorial building) ✅, (documentation) 📖
   
-2. [Alejandro Sanchez (alesanchezr)](https://github.com/alesanchezr),  contribution: (bug reports) 🐛
+2. [Alejandro Sanchez (alesanchezr)](https://github.com/alesanchezr), contribution: (bug reports) 🐛
 
-This and many other exercises are built by students as part of the 4Geeks Academy [Cybersecurity Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/cybersecurity) by [Alejandro Sánchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and  [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning). 
+This and many other exercises are created by students as part of the [Cybersecurity Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/cybersecurity) at 4Geeks Academy by [Alejandro Sánchez](https://twitter.com/alesanchezr) and many other contributors. Discover more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer) and the [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
 
 <!-- endhide -->
